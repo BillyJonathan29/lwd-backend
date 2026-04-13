@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
+            $table->string('topic_title', 150);
+            $table->text('description')->nullable();
+            $table->date('date');
+            $table->enum('category', ['web', 'hardware', 'tools']);
+            $table->dateTime('assignment_deadline')->nullable();
             $table->timestamps();
         });
     }

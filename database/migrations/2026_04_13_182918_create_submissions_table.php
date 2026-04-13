@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('meeting_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->text('file_or_link');
+            $table->timestamp('submitted_at')->useCurrent();
+            $table->text('member_notes')->nullable();
         });
     }
 

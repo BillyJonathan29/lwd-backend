@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('meeting_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->enum('status', ['present', 'excused', 'sick', 'absent']);
+            $table->timestamp('attended_at')->useCurrent();
+            $table->string('gps_location')->nullable();
+
+            $table->unique(['meeting_id', 'user_id']);
         });
     }
 
