@@ -11,6 +11,8 @@ use Laravel\Sanctum\HasApiTokens;
 class WarningLetter extends Model
 {
     use HasFactory, HasApiTokens,  Notifiable;
+    
+    public $timestamps = false;
 
     protected $fillable = [
         'user_id',

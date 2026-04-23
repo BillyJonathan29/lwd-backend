@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    // config/services.php
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+    ],
+
 ];

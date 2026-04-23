@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('file_or_link');
             $table->timestamp('submitted_at')->useCurrent();
             $table->text('member_notes')->nullable();
+            $table->timestamps();
         });
     }
 

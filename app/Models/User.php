@@ -24,7 +24,10 @@ class User extends Authenticatable
         'password',
         'subdivision',
         'role',
-        'fcm_token'
+        'fcm_token',
+        'profile_photo_path',
+        'google_id',
+        'google_email',
     ];
 
 

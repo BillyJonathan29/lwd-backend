@@ -4,29 +4,34 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-
 
 class Attendance extends Model
 {
-    use HasFactory, HasApiTokens,  Notifiable;
+    use HasFactory;
+    
+    // Disable laravel's default timestamps since we only use attended_at
+    public $timestamps = false; // Because migration doesn't have created_at updated_at. Wait, it only has attended_at
 
     protected $fillable = [
-        'topic_title',
-        'description',
-        'date',
-        'category',
-        'assignment_deadline'
+        'meeting_id',
+        'user_id',
+        'status',
+        'attended_at',
+        'gps_location'
+    ];
+    
+    // Cast attended_at to datetime
+    protected $casts = [
+        'attended_at' => 'datetime',
     ];
 
-    public function attendances()
+    public function user()
     {
-        return $this->hasMany(Attendance::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function submissions()
+    public function meeting()
     {
-        return $this->hasMany(Submission::class);
+        return $this->belongsTo(Meeting::class);
     }
 }

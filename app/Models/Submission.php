@@ -15,7 +15,9 @@ class Submission extends Model
         'meeting_id',
         'user_id',
         'file_or_link',
-        'member_notes'
+        'member_notes',
+        'grade',
+        'admin_feedback'
     ];
 
     public function user()
