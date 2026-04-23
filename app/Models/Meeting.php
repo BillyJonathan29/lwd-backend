@@ -20,6 +20,10 @@ class Meeting extends Model
         'assignment_deadline'
     ];
 
+    protected $casts = [
+        'date'                => 'datetime',
+        'assignment_deadline' => 'datetime',
+    ];
     public function attendances()
     {
         return $this->hasMany(Attendance::class);

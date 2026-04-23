@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->date('date');
             $table->enum('category', ['web', 'hardware', 'tools']);
+            $table->string('location', 150);
             $table->dateTime('assignment_deadline')->nullable();
             $table->timestamps();
         });

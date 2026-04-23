@@ -92,6 +92,7 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Pengenalan dasar HTML untuk struktur web.',
                 'date' => '2026-04-14', // Tanggal disesuaikan dengan screenshot kamu
                 'category' => 'web',
+                'location' => 'Sekre PBK',
                 'assignment_deadline' => Carbon::parse('2026-04-14')->addDays(3),
                 'created_at' => $now,
             ],
@@ -100,6 +101,7 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Pengenalan komponen hardware dan LED blink.',
                 'date' => '2026-04-21',
                 'category' => 'hardware',
+                'location' => 'Sekre PBK',
                 'assignment_deadline' => Carbon::parse('2026-04-21')->addDays(3),
                 'created_at' => $now,
             ]

@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\AttendanceController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\HistoryController;
+use App\Http\Controllers\Api\MeetingController;
+use App\Http\Controllers\Api\SubmissionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +38,17 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/update-fcm',  [AuthController::class, 'updateFcm']);
         Route::get('/me', [AuthController::class, 'me']);
         Route::post('/update-profile', [AuthController::class, 'updateProfile']);
+        Route::get('/meetings',     [MeetingController::class, 'index']);
+        Route::get('/meetings/{id}', [MeetingController::class, 'show']);
+
+        Route::post('/attendances', [AttendanceController::class, 'store']);
+        Route::post('/submissions', [SubmissionController::class, 'store']);
+
+        Route::get('/attendances-history', [HistoryController::class, 'attendanceHistory']);
+        Route::get('/submissions-history', [HistoryController::class, 'submissionHistory']);
+        Route::get('/warning-letters', [HistoryController::class, 'warningLetterHistory']);
     });
+
 
     // Profile
     // Route::prefix('profile')->group(function () {
@@ -42,3 +56,4 @@ Route::middleware('auth:sanctum')->group(function () {
     // });
 
 });
+
