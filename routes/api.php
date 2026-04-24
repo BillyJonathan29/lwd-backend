@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\MeetingController;
 use App\Http\Controllers\Api\SubmissionController;
+use App\Http\Controllers\Api\MemberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -50,10 +51,16 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
 
+    Route::middleware('auth:sanctum')->prefix('member')->group(function(){
+        Route::get('/home', [MemberController::class, 'index']);
+    });
+
+
     // Profile
     // Route::prefix('profile')->group(function () {
     //     Route::get('/',    [ProfileController::class, 'show']);
     // });
 
 });
+
 

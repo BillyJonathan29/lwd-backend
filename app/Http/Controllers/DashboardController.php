@@ -75,7 +75,7 @@ class DashboardController extends Controller
                 'type' => 'warning',
                 'title' => 'SP Diterbitkan',
                 'user' => $sp->user->full_name,
-                'description' => "Menerima " . $sp->warning_level . ": " . \Str::limit($sp->reason, 30),
+                'description' => "Menerima " . $sp->warning_level . ": " . Str::limit($sp->reason, 30),
                 'time' => $sp->issued_at,
                 'icon' => 'alert-triangle',
                 'color' => 'red'
